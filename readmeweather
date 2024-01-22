@@ -1,0 +1,57 @@
+# Eficodeweatherapp
+
+## Overview
+Eficode weatherapp
+
+## Table of Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Testing](#testing)
+
+## Installation
+
+-Backend
+Install backend dependencies:
+npm install
+Start the backend server:
+npm starta
+
+Frontend
+Install frontend dependencies:
+npm install
+Start the frontend application:
+npm start
+
+Running Tests
+
+-Backend
+To run backend tests:
+npm test
+
+Frontend
+To run frontend tests:
+npm test
+
+Notes:
+Ensure Node.js and npm are installed on your machine before running the installation commands.
+
+## Usage
+Key Features:
+1. Real-time Weather Updates
+WeatherApp fetches real-time weather data from OpenWeatherMap
+
+2. Location-based Forecast
+The application allows users to view the current weather for a predefined location
+
+3. Docker
+WeatherApp is Dockerized
+
+4. Test Automation
+The application is equipped with automated tests using Mocha for unit testing and Robot Framework for integration testing.
+
+## Testing
+Unit tests for WeatherApp are located in the test directory. 
+
+## Automated Tests
+WeatherApp includes automated tests using Robot Framework.
