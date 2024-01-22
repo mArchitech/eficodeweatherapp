@@ -8,6 +8,8 @@
     "start": "node src/index.js",
     "dev": "DEBUG=weathermap ./node_modules/.bin/nodemon src/index.js",
     "lint": "eslint src/*.js"
+    "test": "mocha --require esm 'test/**/*.mjs'"
+    "test": "mocha-esm --recursive ./test"
   },
   "dependencies": {
     "debug": "^4.1.1",

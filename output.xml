@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.12.1 on win32)" generated="2024-01-21T08:50:57.374226" rpa="false" schemaversion="5">
+<suite id="s1" name="Weather" source="C:\weatherapp\eficodeweatherapp\weather.robot">
+<test id="s1-t1" name="Verify Weather API" line="9">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2024-01-21T08:50:57.520928" level="INFO">Creating Session using : alias=WeatherAPI, url=http://localhost:9000, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>WeatherAPI</arg>
+<arg>${BASE_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2024-01-21T08:50:57.520928" elapsed="0.000000"/>
+</kw>
+<kw name="Get Request" owner="RequestsLibrary">
+<msg time="2024-01-21T08:50:57.521746" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg time="2024-01-21T08:51:01.575480" level="WARN">Retrying (RetryAdapter(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000001883F76BEC0&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /api/weather</msg>
+<msg time="2024-01-21T08:51:05.842875" level="WARN">Retrying (RetryAdapter(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000001884006BDA0&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /api/weather</msg>
+<msg time="2024-01-21T08:51:10.277169" level="WARN">Retrying (RetryAdapter(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000001884006BF20&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /api/weather</msg>
+<msg time="2024-01-21T08:51:14.317250" level="FAIL">ConnectionError: HTTPConnectionPool(host='localhost', port=9000): Max retries exceeded with url: /api/weather (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x00000188400941D0&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))</msg>
+<var>${response}</var>
+<arg>WeatherAPI</arg>
+<arg>/api/weather</arg>
+<doc>*DEPRECATED* Please use `GET On Session` instead.</doc>
+<status status="FAIL" start="2024-01-21T08:50:57.521746" elapsed="16.811711">ConnectionError: HTTPConnectionPool(host='localhost', port=9000): Max retries exceeded with url: /api/weather (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x00000188400941D0&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))</status>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="NOT RUN" start="2024-01-21T08:51:14.334546" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${json_response}</var>
+<arg>${response.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2024-01-21T08:51:14.335729" elapsed="0.000000"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${json_response}</arg>
+<arg>weather</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="NOT RUN" start="2024-01-21T08:51:14.335729" elapsed="0.000000"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${json_response}</arg>
+<arg>forecast</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="NOT RUN" start="2024-01-21T08:51:14.335729" elapsed="0.000508"/>
+</kw>
+<tag>Weather</tag>
+<status status="FAIL" start="2024-01-21T08:50:57.518930" elapsed="16.817354">ConnectionError: HTTPConnectionPool(host='localhost', port=9000): Max retries exceeded with url: /api/weather (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x00000188400941D0&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))</status>
+</test>
+<doc>WeatherApp Integration Tests</doc>
+<status status="FAIL" start="2024-01-21T08:50:57.375169" elapsed="16.982276"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">Weather</stat>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Weather">Weather</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2024-01-21T08:50:57.521746" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg time="2024-01-21T08:51:01.575480" level="WARN">Retrying (RetryAdapter(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000001883F76BEC0&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /api/weather</msg>
+<msg time="2024-01-21T08:51:05.842875" level="WARN">Retrying (RetryAdapter(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000001884006BDA0&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /api/weather</msg>
+<msg time="2024-01-21T08:51:10.277169" level="WARN">Retrying (RetryAdapter(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000001884006BF20&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /api/weather</msg>
+</errors>
+</robot>
